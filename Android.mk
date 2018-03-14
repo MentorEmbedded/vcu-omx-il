@@ -14,6 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+ifeq ($(TARGET_USES_XILINX_VCU),true)
+
 LOCAL_PATH := $(call my-dir)
 
 # Common src files for all libs
@@ -261,4 +263,5 @@ LOCAL_SHARED_LIBRARIES := \
 LOCAL_MODULE := libstagefrighthw
 
 include $(BUILD_SHARED_LIBRARY)
+endif
 
