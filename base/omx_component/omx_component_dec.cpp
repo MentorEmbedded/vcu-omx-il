@@ -766,9 +766,10 @@ OMX_ERRORTYPE DecComponent::SetParameter(OMX_IN OMX_INDEXTYPE index, OMX_IN OMX_
   if(OMX_U32(index) != OMX_IndexParamStandardComponentRole)
   {
     port = getCurrentPort(param);
-
+#ifndef ANDROID
     if(!port->isTransientToDisable && port->enable)
       OMXChecker::CheckStateOperation(OMXChecker::ComponentMethods::SetParameter, state);
+#endif
   }
   switch(static_cast<OMX_U32>(index)) // all indexes are 32u
   {
